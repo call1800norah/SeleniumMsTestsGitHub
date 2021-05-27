@@ -33,9 +33,9 @@ namespace SeleniumDemoMsTest.PageUnitTests
             wait.Until(e => searchItemsPO.SearchHeading.Displayed);
 
             Assert.IsTrue(searchItemsPO.SearchHeading.Text.Contains("0 results have been found."),
-                $"nameof{searchItemsPO.SearchHeading} was not displayed.");
+                $"{nameof(searchItemsPO.SearchHeading)} was not displayed.");
             Assert.IsTrue(searchItemsPO.NoSearchItemFound.Text.Contains("No results were found"),
-                $"nameof{searchItemsPO.NoSearchItemFound} was not displayed.");
+                $"{nameof(searchItemsPO.NoSearchItemFound)} was not displayed.");
 
             //Input valid value in the search box
             searchItemsPO.SearchInputBox.Clear();
@@ -51,11 +51,11 @@ namespace SeleniumDemoMsTest.PageUnitTests
             WaitForElementDisplayed(searchItemsPO.SearchResultItems.FirstOrDefault());
 
             Assert.IsTrue(searchItemsPO.QuickViewButtons.FirstOrDefault().Displayed,
-                $"nameof{searchItemsPO.QuickViewButtons.FirstOrDefault()} was not displayed.");
+                $"{searchItemsPO.QuickViewButtons.FirstOrDefault()} was not displayed.");
             Assert.IsTrue(searchItemsPO.AddToCartButtons.FirstOrDefault().Displayed,
-               $"nameof{searchItemsPO.AddToCartButtons.FirstOrDefault()} was not displayed.");
+               $"{searchItemsPO.AddToCartButtons.FirstOrDefault()} was not displayed.");
             Assert.IsTrue(searchItemsPO.MoreButtons.FirstOrDefault().Displayed,
-                $"nameof{searchItemsPO.MoreButtons.FirstOrDefault()} was not displayed.");
+                $"{searchItemsPO.MoreButtons.FirstOrDefault()} was not displayed.");
             searchItemsPO.QuickViewButtons.FirstOrDefault().Click();
 
             //Validate the popup item that is iframe content

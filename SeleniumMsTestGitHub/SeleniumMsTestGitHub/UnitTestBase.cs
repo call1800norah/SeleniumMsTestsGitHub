@@ -35,11 +35,11 @@ namespace SeleniumDemoMsTest
         /// <param name="timeoutInSeconds"></param>
         public void WaitForDisplayed(IWebElement element, int timeoutInSeconds = 10)
         {
-            Assert.IsNotNull(element, $"nameof{element} returned as null!!");
+            Assert.IsNotNull(element, $"{nameof(element)} returned as null!!");
             wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(timeoutInSeconds))
             {
                 PollingInterval = TimeSpan.FromMilliseconds(250),
-                Message = $"nameof{element} timed out after {timeoutInSeconds}."
+                Message = $"{nameof(element)} timed out after {timeoutInSeconds}."
             };
             wait.Until(e => element.Displayed);
         }
@@ -50,7 +50,7 @@ namespace SeleniumDemoMsTest
         public void IsEachElementDisplayed(List<IWebElement> element)
         {
             var isEachElementsDisplayed = element.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : first);
-            Assert.IsTrue(isEachElementsDisplayed.Displayed, $"nameof{isEachElementsDisplayed} was not displayed.");
+            Assert.IsTrue(isEachElementsDisplayed.Displayed, $"{nameof(isEachElementsDisplayed)} was not displayed.");
         }
         /// <summary>
         /// Verify a collection of elements are all displayed.
@@ -59,7 +59,7 @@ namespace SeleniumDemoMsTest
         public void ElementCollectionDisplayed(ReadOnlyCollection<IWebElement> elementList)
         {
             var isElementCollectionDisplayed = elementList.Where(e => e != null).Aggregate((first, second) => first.Displayed ? second : first);
-            Assert.IsTrue(isElementCollectionDisplayed.Displayed, $"nameof{isElementCollectionDisplayed} was not displayed.");
+            Assert.IsTrue(isElementCollectionDisplayed.Displayed, $"{nameof(isElementCollectionDisplayed)} was not displayed.");
         }
         /// <summary>
         /// Wait for element to be displayed using WebDriverWait
